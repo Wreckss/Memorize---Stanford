@@ -25,7 +25,7 @@ struct MemoryGame<CardContent> {
     }
     
     struct Card: Identifiable {     // Identifiable is a protocol, which allows the Card struct to gain the ability to be identified within the ForEach loop of the HStack View
-        var isFaceUp: Bool = false      // initializing values allows us to avoid having to provide these values to constructor calls as seen above
+        var isFaceUp: Bool = true      // initializing values allows us to avoid having to provide these values to constructor calls as seen above
         var isMatched: Bool = false
         var content: CardContent
         var id: Int     // a dedicated Int var must be provided in order to conform to the Identifiable protocol

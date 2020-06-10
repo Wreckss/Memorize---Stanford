@@ -22,7 +22,7 @@ class EmojiMemoryGame {
     
     //  MARK: - Access to the model functions
     var cards: Array<MemoryGame<String>.Card> {
-        gameModel.cards
+        gameModel.cards.shuffled()      // shuffled() satisfies the first homework requirement
     }
     
     //  MARK: - User intention functions
