@@ -24,6 +24,7 @@ struct ContentView: View {
             .foregroundColor(Color.orange)    //this method call will affect all Views within this stack
             .padding()  //this creates white space between the edge of the View and the shape
             .font(Font.largeTitle)  //this will set the font environment for all text within the stack
+            .frame(width: 300, height: 120) //this is my attempt to satisfy homework requirement #2
     }
 }
 
