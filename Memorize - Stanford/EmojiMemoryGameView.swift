@@ -4,13 +4,15 @@
 //
 //  Created by taco on 6/1/20.
 //  Copyright © 2020 tacoTruck. All rights reserved.
+
 //  Lecture 1: https://www.youtube.com/watch?v=jbtqIBpUG7g
 //  Lecture 2: https://www.youtube.com/watch?v=4GjXq2Sr55Q
+//  Homework: https://cs193p.sites.stanford.edu/sites/g/files/sbiybj16636/files/media/file/a1.pdf
 
 
 import SwiftUI
 
-struct ContentView: View {
+struct EmojiMemoryGameView: View {
     var viewModel: EmojiMemoryGame
     
     var body: some View {
@@ -30,7 +32,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(viewModel: EmojiMemoryGame())
+        EmojiMemoryGameView(viewModel: EmojiMemoryGame())
     }
 }
 
