@@ -5,24 +5,23 @@
 //  Created by taco on 6/9/20.
 //  Copyright © 2020 tacoTruck. All rights reserved.
 //
+//  THIS CLASS ACTS AS OUR VIEW MODEL
 
 import SwiftUI
 
-class EmojiMemoryGame {
+class EmojiMemoryGame: ObservableObject {
     
     //this model variable becomes a closure by "inlining" a function by including the return value within curly brackets as a parameter
-    private var gameModel: MemoryGame<String> = EmojiMemoryGame.createMemoryGame()
+    @Published private var gameModel: MemoryGame<String> = EmojiMemoryGame.createMemoryGame()   // @Published property wrapper negates the need for objectWillChange.send() calls by adding automatic publishing functionality to the var
     
     static func createMemoryGame() -> MemoryGame<String> {
         let emojis = ["👻","🎃"]
-
-        //let intArray: [Int] = Array(2..<5)
-        
         
         return MemoryGame<String>(numberOfPairsOfCards: 2) { pairIndex in
             return emojis[pairIndex]
         }
     }
+    
     
     //  MARK: - Access to the model functions
     var cards: Array<MemoryGame<String>.Card> {
@@ -31,6 +30,7 @@ class EmojiMemoryGame {
     
     //  MARK: - User intention functions
     func choose(card: MemoryGame<String>.Card) {
+//        objectWillChange.send()         // objectWillChange is gained from ObservableObject, send() tells the View to update
         gameModel.choose(card: card)
     }
     

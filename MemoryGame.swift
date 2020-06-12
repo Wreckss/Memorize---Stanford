@@ -7,14 +7,29 @@
 //  Lecture 1: https://www.youtube.com/watch?v=jbtqIBpUG7g
 //  Lecture 2: https://www.youtube.com/watch?v=4GjXq2Sr55Q
 //  Homework: https://cs193p.sites.stanford.edu/sites/g/files/sbiybj16636/files/media/file/a1.pdf
+//  Lecture 3: https://www.youtube.com/watch?v=SIYdYpPXil4
 
 import Foundation
 
 struct MemoryGame<CardContent> {
+
+    
     var cards: Array<Card>
     
-    func choose(card: Card) {
+    mutating func choose(card: Card) {      //  mutating keyword indicates this function will modify self
         print("card chosen: \(card)")
+        
+        let chosenIndex: Int = self.index(of: card)
+        cards[chosenIndex].isFaceUp = !cards[chosenIndex].isFaceUp
+    }
+    
+    func index(of card: Card) -> Int {      //  the dual parameter name allows this function to have an external call to of: and an internal call to card:
+        for index in 0..<cards.count {
+            if self.cards[index].id == card.id {
+                return index
+            }
+        }
+        return 0    //  TODO: this is a bogus return
     }
     
     init (numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent) {

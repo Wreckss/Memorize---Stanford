@@ -13,7 +13,7 @@
 import SwiftUI
 
 struct EmojiMemoryGameView: View {
-    var viewModel: EmojiMemoryGame
+    @ObservedObject var viewModel: EmojiMemoryGame  // @ObservedObject property wrapper signifies this var contains an ObservableObject
     
     var body: some View {
         return HStack {    //HStack allows Views to be arranged from left to right
