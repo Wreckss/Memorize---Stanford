@@ -25,7 +25,7 @@ class EmojiMemoryGame: ObservableObject {
     
     //  MARK: - Access to the model functions
     var cards: Array<MemoryGame<String>.Card> {
-        gameModel.cards.shuffled()      // shuffled() satisfies the first homework requirement
+        gameModel.cards
     }
     
     //  MARK: - User intention functions

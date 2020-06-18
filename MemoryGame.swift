@@ -39,6 +39,7 @@ struct MemoryGame<CardContent> {
             cards.append(Card(content: content, id: pairIndex*2))
             cards.append(Card(content: content, id: pairIndex*2+1))
         }
+        cards.shuffle()     // this satisfies homework requirement #2
     }
     
     struct Card: Identifiable {     // Identifiable is a protocol, which allows the Card struct to gain the ability to be identified within the ForEach loop of the HStack View
