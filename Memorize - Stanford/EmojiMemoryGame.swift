@@ -15,9 +15,9 @@ class EmojiMemoryGame: ObservableObject {
     @Published private var gameModel: MemoryGame<String> = EmojiMemoryGame.createMemoryGame()   // @Published property wrapper negates the need for objectWillChange.send() calls by adding automatic publishing functionality to the var
     
     static func createMemoryGame() -> MemoryGame<String> {
-        let emojis = ["👻","🎃"]
+        let emojis = ["👻","🎃","💩","💀","🤖"]
         
-        return MemoryGame<String>(numberOfPairsOfCards: 2) { pairIndex in
+        return MemoryGame<String>(numberOfPairsOfCards: Int.random(in: 2...5)) { pairIndex in       // Int.random was used to satisfy homework requirement #4
             return emojis[pairIndex]
         }
     }

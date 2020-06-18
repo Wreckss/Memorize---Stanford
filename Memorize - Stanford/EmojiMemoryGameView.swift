@@ -49,7 +49,6 @@ struct CardView: View {
             } else {
                 RoundedRectangle(cornerRadius: 10.0).fill()
             }
-
         }
     }
 }
