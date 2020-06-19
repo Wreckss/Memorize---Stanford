@@ -12,7 +12,7 @@ import SwiftUI
 class EmojiMemoryGame: ObservableObject {
     
     //this model variable becomes a closure by "inlining" a function by including the return value within curly brackets as a parameter
-    @Published private var gameModel: MemoryGame<String> = EmojiMemoryGame.createMemoryGame()   // @Published property wrapper negates the need for objectWillChange.send() calls by adding automatic publishing functionality to the var
+    @Published private var gameModel: MemoryGame<String> = EmojiMemoryGame.createMemoryGame()   // @Published property wrapper negates the need for objectWillChange.send() calls by adding automatic publishing functionality to the gameModel var
     
     static func createMemoryGame() -> MemoryGame<String> {
         let emojis = ["👻","🎃","💩","💀","🤖"]
@@ -30,7 +30,7 @@ class EmojiMemoryGame: ObservableObject {
     
     //  MARK: - User intention functions
     func choose(card: MemoryGame<String>.Card) {
-//        objectWillChange.send()         // objectWillChange is gained from ObservableObject, send() tells the View to update
+//        objectWillChange.send()         // objectWillChange is gained from ObservableObject, send() tells the View to update, this becomes unneccesary after adding @Published to the                                             gameModel var
         gameModel.choose(card: card)
     }
     
