@@ -16,17 +16,17 @@ struct EmojiMemoryGameView: View {
     @ObservedObject var viewModel: EmojiMemoryGame  // @ObservedObject property wrapper signifies this var contains an ObservableObject
     
     var body: some View {
-        return HStack {    //HStack allows Views to be arranged from left to right
-            ForEach(viewModel.cards) { card in   //loop used to create 4 identicle Views
-                CardView(card: card).onTapGesture {
-                    self.viewModel.choose(card: card)
+            return HStack {    //HStack allows Views to be arranged from left to right
+                ForEach(self.viewModel.cards) { card in   //loop used to create 4 identicle Views
+                    CardView(card: card).onTapGesture {
+                        self.viewModel.choose(card: card)
+                    }
+                        .aspectRatio(2/3, contentMode: .fit)    // this is the correct solution to homework requirement #3
                 }
-                .aspectRatio(2/3, contentMode: .fit)    // this is the correct solution to homework requirement #3
             }
-        }
             .foregroundColor(Color.orange)    //this method call will affect all Views within this stack
             .padding()  //this creates white space between the edge of the View and the shape
-            .font(Font.largeTitle)
+            
     }
 }
 
@@ -41,14 +41,29 @@ struct CardView: View {
     var card: MemoryGame<String>.Card
     
     var body: some View {
+        GeometryReader { geometry in
+            self.body(for: geometry.size)
+        }
+    }
+    
+    func body(for size: CGSize) -> some View {
         ZStack {    //ZStack allows Views to be stacked on top of eachother within the Z axis
             if card.isFaceUp {
-                RoundedRectangle(cornerRadius: 10.0).fill(Color.white)
-                RoundedRectangle(cornerRadius: 10.0).stroke(lineWidth: 3)   //stroke method call creates an outline of the shape created rather than creating a filled shape
+                RoundedRectangle(cornerRadius: cornerRadius).fill(Color.white)
+                RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: edgeLineWidth)   //stroke method call creates an outline of the shape created rather than creating a filled shape
                 Text(card.content)
             } else {
-                RoundedRectangle(cornerRadius: 10.0).fill()
+                RoundedRectangle(cornerRadius: cornerRadius).fill()
             }
         }
+        .font(Font.system(size: fontSize(for: size)))
+    }
+    
+    //MARK: - Drawing Constants
+    let cornerRadius: CGFloat = 10.0
+    let edgeLineWidth: CGFloat = 3
+
+    func fontSize(for size: CGSize) -> CGFloat {
+        min(size.width, size.height) * 0.75
     }
 }
