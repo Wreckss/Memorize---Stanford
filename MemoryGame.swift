@@ -19,19 +19,10 @@ struct MemoryGame<CardContent> {
     mutating func choose(card: Card) {      //  mutating keyword indicates this function will modify self
         print("card chosen: \(card)")
         
-        let chosenIndex: Int = self.index(of: card)
+        let chosenIndex: Int = cards.firstIndex(matching: card)
         cards[chosenIndex].isFaceUp = !cards[chosenIndex].isFaceUp
     }
-    
-    func index(of card: Card) -> Int {      //  the dual parameter name allows this function to have an external call to of: and an internal call to card:
-        for index in 0..<cards.count {
-            if self.cards[index].id == card.id {
-                return index
-            }
-        }
-        return 0    //  TODO: this is a bogus return
-    }
-    
+      
     init (numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent) {
         cards = Array<Card>()
         for pairIndex in 0..<numberOfPairsOfCards {

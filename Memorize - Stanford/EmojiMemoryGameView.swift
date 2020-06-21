@@ -8,6 +8,8 @@
 //  Lecture 1: https://www.youtube.com/watch?v=jbtqIBpUG7g
 //  Lecture 2: https://www.youtube.com/watch?v=4GjXq2Sr55Q
 //  Homework: https://cs193p.sites.stanford.edu/sites/g/files/sbiybj16636/files/media/file/a1.pdf
+//  Lecture 3: https://www.youtube.com/watch?v=SIYdYpPXil4
+//  Lecture 4: https://www.youtube.com/watch?v=eHEeWzFP6O4
 
 
 import SwiftUI
@@ -16,19 +18,19 @@ struct EmojiMemoryGameView: View {
     @ObservedObject var viewModel: EmojiMemoryGame  // @ObservedObject property wrapper signifies this var contains an ObservableObject
     
     var body: some View {
-            return HStack {    //HStack allows Views to be arranged from left to right
-                ForEach(self.viewModel.cards) { card in   //loop used to create 4 identicle Views
+        Grid(viewModel.cards) { card in   // this is explained at 3:00 of Lecture 4
                     CardView(card: card).onTapGesture {
                         self.viewModel.choose(card: card)
                     }
                         .aspectRatio(2/3, contentMode: .fit)    // this is the correct solution to homework requirement #3
+                        .padding(5)
                 }
+        .foregroundColor(Color.orange)    //this method call will affect all Views within this stack
+        .padding()  //this creates white space between the edge of the View and the shape
             }
-            .foregroundColor(Color.orange)    //this method call will affect all Views within this stack
-            .padding()  //this creates white space between the edge of the View and the shape
-            
     }
-}
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

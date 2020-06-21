@@ -13,6 +13,9 @@
 		1C1A308C248618850025E91E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C1A308B248618850025E91E /* Assets.xcassets */; };
 		1C1A308F248618850025E91E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C1A308E248618850025E91E /* Preview Assets.xcassets */; };
 		1C1A3092248618850025E91E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C1A3090248618850025E91E /* LaunchScreen.storyboard */; };
+		1C81DB22249ED4E000F1483D /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C81DB21249ED4E000F1483D /* Grid.swift */; };
+		1C81DB24249EDCC000F1483D /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C81DB23249EDCC000F1483D /* GridLayout.swift */; };
+		1C81DB26249EE00200F1483D /* Array+Indentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C81DB25249EE00200F1483D /* Array+Indentifiable.swift */; };
 		1C913704248FDEF7004A544A /* EmojiMemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C913703248FDEF7004A544A /* EmojiMemoryGame.swift */; };
 		1C913706248FF14D004A544A /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C913705248FF14D004A544A /* MemoryGame.swift */; };
 /* End PBXBuildFile section */
@@ -26,6 +29,9 @@
 		1C1A308E248618850025E91E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1C1A3091248618850025E91E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C1A3093248618850025E91E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1C81DB21249ED4E000F1483D /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		1C81DB23249EDCC000F1483D /* GridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
+		1C81DB25249EE00200F1483D /* Array+Indentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Indentifiable.swift"; sourceTree = "<group>"; };
 		1C913703248FDEF7004A544A /* EmojiMemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGame.swift; sourceTree = "<group>"; };
 		1C913705248FF14D004A544A /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -60,9 +66,12 @@
 		1C1A3084248618840025E91E /* Memorize - Stanford */ = {
 			isa = PBXGroup;
 			children = (
+				1C81DB23249EDCC000F1483D /* GridLayout.swift */,
 				1C1A3085248618840025E91E /* AppDelegate.swift */,
 				1C1A3087248618840025E91E /* SceneDelegate.swift */,
 				1C1A3089248618840025E91E /* EmojiMemoryGameView.swift */,
+				1C81DB21249ED4E000F1483D /* Grid.swift */,
+				1C81DB25249EE00200F1483D /* Array+Indentifiable.swift */,
 				1C913703248FDEF7004A544A /* EmojiMemoryGame.swift */,
 				1C913705248FF14D004A544A /* MemoryGame.swift */,
 				1C1A308B248618850025E91E /* Assets.xcassets */,
@@ -156,7 +165,10 @@
 				1C1A3086248618840025E91E /* AppDelegate.swift in Sources */,
 				1C1A3088248618840025E91E /* SceneDelegate.swift in Sources */,
 				1C1A308A248618840025E91E /* EmojiMemoryGameView.swift in Sources */,
+				1C81DB26249EE00200F1483D /* Array+Indentifiable.swift in Sources */,
 				1C913704248FDEF7004A544A /* EmojiMemoryGame.swift in Sources */,
+				1C81DB24249EDCC000F1483D /* GridLayout.swift in Sources */,
+				1C81DB22249ED4E000F1483D /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
